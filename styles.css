@@ -1,0 +1,134 @@
+/* Base layout */
+body {
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 支票與票根總容器 */
+.cheque-book {
+    display: flex;
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 850px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 🛠️ 更新後的左上角貼緊劃線樣式 (Crossing) */
+.crossed-line {
+    display: none;
+    position: absolute;
+    left: 240px;      /* 依要求調整至指定位置 */
+    top: 5px;         /* 靠上對齊 */
+    width: 5px;       /* 寬度設為 5px，讓左右邊框（兩條線）僅相差 5px */
+    height: 50px;     /* 線條長度 */
+    border-left: 2px solid #333;  /* 第一條線 */
+    border-right: 2px solid #333; /* 第二條線 */
+    transform: rotate(20deg);     /* 傾斜雙線 */
+    z-index: 10;      /* 確保顯示在文字上方 */
+}
+
+/* 票根樣式 */
+.stub {
+    width: 200px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-right: 2px dashed #999;
+    font-size: 13px;
+}
+.stub h3 { margin-top: 0; color: #666; font-size: 16px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+.stub-field { margin-bottom: 12px; border-bottom: 1px dotted #ccc; min-height: 20px; }
+
+/* 主支票樣式 */
+.cheque {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    background-color: #fafffa;
+}
+.cheque-header { display: flex; justify-content: space-between; align-items: center; }
+.cheque-title { font-size: 20px; font-weight: bold; color: #2c3e50; padding-top: 10px; }
+.cheque-date { font-size: 16px; font-weight: bold; }
+
+.cheque-row { margin-top: 15px; display: flex; align-items: center; font-size: 15px; }
+.cheque-label { width: 90px; font-weight: bold; color: #555; }
+.cheque-value { flex: 1; border-bottom: 1px solid #333; padding-left: 10px; min-height: 22px; font-weight: bold; }
+    
+.amount-box {
+    border: 2px solid #333;
+    padding: 5px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #fff;
+    min-width: 150px;
+    text-align: right;
+}
+
+/* 下方輸入表單 */
+.form-container {
+    width: 100%;
+    max-width: 850px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.form-group { display: flex; flex-direction: column; }
+.form-group label { margin-bottom: 5px; font-weight: bold; }
+.form-group input, .form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.btn-save {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-save:hover { background-color: #219653; }
+
+/* 支票需知與提醒區塊 */
+.notice-container {
+    width: 100%;
+    max-width: 850px;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.notice-container h4 { margin-top: 0; margin-bottom: 8px; font-size: 16px; display: flex; align-items: center; }
+.notice-list { margin: 0; padding-left: 20px; line-height: 1.6; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .stub { display: none; }
+    .cheque-book { flex-direction: column; }
+}

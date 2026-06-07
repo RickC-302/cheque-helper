@@ -70,6 +70,16 @@
             </div>
         </div>
         <button id="btn-save" class="btn-save" type="button">Save 儲存紀錄</button>
+
+        <div id="history-panel" class="history-panel" style="margin-top:12px;">
+            <div class="history-controls" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                <button id="btn-view" type="button">View Last Saved</button>
+                <button id="btn-recall" type="button" disabled>Recall / Load Last Saved</button>
+                <button id="btn-clear" type="button">Clear History</button>
+            </div>
+            <div id="last-saved-preview" class="last-saved-preview" style="margin-top:8px;color:#333;">No history found</div>
+            <div id="history-list" class="history-list" style="margin-top:8px;color:#333;"> </div>
+        </div>
     </div>
 
     <div class="notice-container">
